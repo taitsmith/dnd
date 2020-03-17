@@ -3,7 +3,7 @@ package com.taitsmith.dnd.utils;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RandomStats {
+public class Stats {
     public static int[] randomStats() {
         int[] stats = new int[6];
 
@@ -14,5 +14,10 @@ public class RandomStats {
         }
 
         return stats;
+    }
+
+    public static int getMod(int statScore) {
+
+        return 1;
     }
 }

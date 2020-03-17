@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.taitsmith.dnd.ui.charactersheet.CharacterSheetFragment;
+import com.taitsmith.dnd.ui.playersheet.PlayerSheetFragment;
 
-public class CharacterSheet extends AppCompatActivity {
+public class PlayerSheet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.character_sheet_activity);
+        setContentView(R.layout.player_sheet_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, CharacterSheetFragment.newInstance())
+                    .replace(R.id.container, PlayerSheetFragment.newInstance())
                     .commitNow();
         }
     }

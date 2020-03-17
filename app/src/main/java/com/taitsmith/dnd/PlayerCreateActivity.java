@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.taitsmith.dnd.ui.charactercreate.CharacterCreateFragment;
+import com.taitsmith.dnd.ui.playercreate.CharacterCreateFragment;
 
-public class CharacterCreateActivity extends AppCompatActivity {
+public class PlayerCreateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.character_create_activity);
+        setContentView(R.layout.player_create_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, CharacterCreateFragment.newInstance())

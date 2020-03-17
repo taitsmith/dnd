@@ -5,7 +5,7 @@
     android:id="@+id/charactercreate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.charactercreate.CharacterCreateFragment">
+    tools:context=".ui.playercreate.CharacterCreateFragment">
 
     <TextView
         android:id="@+id/message"

@@ -4,14 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.taitsmith.dnd.ui.main.MainFragment;
 import com.taitsmith.dnd.ui.main.MainViewModel;
-import com.taitsmith.dnd.utils.RandomStats;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.taitsmith.dnd.utils.Stats;
 
 public class MainActivity extends AppCompatActivity {
     MainViewModel viewModel;
@@ -30,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow();
         }
-        stats = RandomStats.randomStats();
+        stats = Stats.randomStats();
     }
 }

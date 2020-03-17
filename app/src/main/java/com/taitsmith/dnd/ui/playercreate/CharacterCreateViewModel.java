@@ -1,4 +1,4 @@
-package com.taitsmith.dnd.ui.charactercreate;
+package com.taitsmith.dnd.ui.playercreate;
 
 import androidx.lifecycle.ViewModel;
 

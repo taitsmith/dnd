@@ -3,7 +3,7 @@ package com.taitsmith.dnd.objects;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
-public class Character extends RealmObject {
+public class Player extends RealmObject {
     private String name, clazz, background, race, alignment;
     private int str, dex, con, intel, wis, cha, xp, hpCurrent ,hpMax, hpTemp, gold;
     private RealmList<Integer> hitDice;
