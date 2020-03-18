@@ -2,12 +2,11 @@
     <string name="app_name">dnd</string>
 
     <!-- strings for char sheet -->
-    <string name="strength">Strength\n%1$s\n(%2$s)</string>
-    <string name="dexterity">Dexterity\n%1$s\n(%2$s)</string>
-    <string name="constitution">Constitution\n%1$s\n(%2$s)</string>
-    <string name="intelligence">Intelligence\n%1$s\n(%2$s)</string>
-    <string name="wisdon">Wisdom\n%1$s\n(%2$s)</string>
-    <string name="charisma">Charisma\n%1$s\n(%2$s)</string>
-
+    <string name="strength">Strength\n%1$d\n(%2$d)</string>
+    <string name="dexterity">Dexterity\n%1$d\n(%2$d)</string>
+    <string name="constitution">Constitution\n%1$d\n(%2$d)</string>
+    <string name="intelligence">Intelligence\n%1$d\n(%2$d)</string>
+    <string name="wisdom">Wisdom\n%1$d\n(%2$d)</string>
+    <string name="charisma">Charisma\n%1$d\n(%2$d)</string>
 
 </resources>

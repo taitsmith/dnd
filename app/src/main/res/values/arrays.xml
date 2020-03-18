@@ -28,4 +28,13 @@
         <item>Wisdom</item>
         <item>Charisma</item>
     </array>
+
+    <array name="stats">
+        <item>strength</item>
+        <item>dexterity</item>
+        <item>constitution</item>
+        <item>intelligence</item>
+        <item>wisdom</item>
+        <item>charisma</item>
+    </array>
 </resources>

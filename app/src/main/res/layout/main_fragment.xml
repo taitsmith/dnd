@@ -112,7 +112,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:gravity="center_horizontal"
-        android:text="@string/wisdon"
+        android:text="@string/wisdom"
         app:layout_constraintBottom_toTopOf="@+id/cha_tv"
         app:layout_constraintEnd_toStartOf="@+id/vert_guideline_13"
         app:layout_constraintStart_toStartOf="parent"

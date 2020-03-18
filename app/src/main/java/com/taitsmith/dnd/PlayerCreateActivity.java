@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.taitsmith.dnd.ui.playercreate.CharacterCreateFragment;
+import com.taitsmith.dnd.ui.playercreate.PlayerCreateFragment;
 
 public class PlayerCreateActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class PlayerCreateActivity extends AppCompatActivity {
         setContentView(R.layout.player_create_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, CharacterCreateFragment.newInstance())
+                    .replace(R.id.container, PlayerCreateFragment.newInstance())
                     .commitNow();
         }
     }

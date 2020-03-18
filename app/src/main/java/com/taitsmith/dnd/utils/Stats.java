@@ -1,7 +1,6 @@
 package com.taitsmith.dnd.utils;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Stats {
     public static int[] randomStats() {
@@ -17,7 +16,8 @@ public class Stats {
     }
 
     public static int getMod(int statScore) {
-
-        return 1;
+        double d = statScore - 10;
+        d /= 2;
+        return (int) Math.floor(d);
     }
 }

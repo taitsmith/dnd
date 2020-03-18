@@ -1,18 +1,25 @@
 package com.taitsmith.dnd.ui.playersheet;
 
-import android.widget.TextView;
+import android.app.Application;
+import android.content.res.Resources;
 
-import androidx.lifecycle.ViewModel;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
+import com.taitsmith.dnd.R;
 import com.taitsmith.dnd.objects.Player;
 import com.taitsmith.dnd.utils.Stats;
 
-import java.util.List;
+import java.lang.reflect.Field;
 
-public class PlayerSheetViewModel extends ViewModel {
-    private List<TextView> statViews;
 
-    public void setStats(Player player) {
+public class PlayerSheetViewModel extends AndroidViewModel {
+
+    public PlayerSheetViewModel(@NonNull Application application) {
+        super(application);
+    }
+
+    void setStats(Player player) {
         int[] stats = Stats.randomStats();
 
         player.setStr(stats[0]);
@@ -23,4 +30,27 @@ public class PlayerSheetViewModel extends ViewModel {
         player.setCha(stats[5]);
     }
 
+    //TODO there's fur sure an easier way to do this
+    String[] setStatString(int[] stats) {
+        Resources res = getApplication().getResources();
+        String[] statNames = res.getStringArray(R.array.stats);
+        String[] returnStrings = new String[6];
+
+        for (int i = 0; i < statNames.length; i++) {
+            int j = getResId(statNames[i], R.string.class);
+            returnStrings[i] = String.format(res.getString(j), stats[i], Stats.getMod(stats[i]));
+        }
+        return returnStrings;
+    }
+
+    //thanks macarse on SO for this snippet
+    private int getResId(String name, Class<?> c) {
+        try {
+            Field idField = c.getDeclaredField(name);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }

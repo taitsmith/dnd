@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetFragment;
 
-public class PlayerSheet extends AppCompatActivity {
+public class PlayerSheetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

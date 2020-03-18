@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 
 import com.taitsmith.dnd.R;
 
-public class CharacterCreateFragment extends Fragment {
+public class PlayerCreateFragment extends Fragment {
 
-    private CharacterCreateViewModel mViewModel;
+    private PlayerCreateViewModel mViewModel;
 
-    public static CharacterCreateFragment newInstance() {
-        return new CharacterCreateFragment();
+    public static PlayerCreateFragment newInstance() {
+        return new PlayerCreateFragment();
     }
 
     @Nullable
@@ -32,7 +32,7 @@ public class CharacterCreateFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(CharacterCreateViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(PlayerCreateViewModel.class);
         // TODO: Use the ViewModel
     }
 
