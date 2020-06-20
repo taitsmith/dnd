@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.taitsmith.dnd.R;
 import com.taitsmith.dnd.objects.Player;
 import com.taitsmith.dnd.utils.Stats;
@@ -36,6 +37,8 @@ public class PlayerSheetFragment extends Fragment {
     @BindView(R.id.int_tv) TextView intTv;
     @BindView(R.id.wis_tv) TextView wisTv;
     @BindView(R.id.cha_tv) TextView chaTv;
+
+    @BindView(R.id.charsheet_tabs) TabLayout tabLayout;
 
     private PlayerSheetViewModel viewModel;
     private Player player;
@@ -81,8 +84,9 @@ public class PlayerSheetFragment extends Fragment {
     //method exists as is for dev purposes only, will be changed in the future to reflect actual use
     @SuppressLint("ResourceType")
     private void updateStatViews() {
-        String[] statStrings = viewModel.setStatString(Stats.randomStats());
         int[] playerStats = Stats.randomStats();
+        String[] statStrings = viewModel.setStatString(playerStats);
+
 
         player.setStr(playerStats[0]);
         player.setDex(playerStats[1]);

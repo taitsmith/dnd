@@ -12,4 +12,8 @@
     <string name="player_name">%1$s</string>
     <string name="roll_result">You rolled %1$d</string>
 
+    <!-- tab layout -->
+    <string name="skills_abilities">Skills and Abilities</string>
+    <string name="attacks_combat_hp">Attacks, Combat and HP</string>
+    <string name="spellcasting">Spellcasting</string>
 </resources>
