@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.annotation.SuppressLint;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.taitsmith.dnd.R;
 import com.taitsmith.dnd.objects.Player;
@@ -22,7 +22,11 @@ import com.taitsmith.dnd.utils.Stats;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static com.taitsmith.dnd.utils.Stats.diceRoll;
+import static com.taitsmith.dnd.utils.Stats.getMod;
 
 public class PlayerSheetFragment extends Fragment {
 
@@ -65,6 +69,7 @@ public class PlayerSheetFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(PlayerSheetViewModel.class);
         // TODO: Use the ViewModel
+
     }
 
     @Override
@@ -73,16 +78,63 @@ public class PlayerSheetFragment extends Fragment {
         unbinder.unbind();
     }
 
+    //method exists as is for dev purposes only, will be changed in the future to reflect actual use
     @SuppressLint("ResourceType")
     private void updateStatViews() {
         String[] statStrings = viewModel.setStatString(Stats.randomStats());
+        int[] playerStats = Stats.randomStats();
 
+        player.setStr(playerStats[0]);
+        player.setDex(playerStats[1]);
+        player.setCon(playerStats[2]);
+        player.setIntel(playerStats[3]);
+        player.setWis(playerStats[4]);
+        player.setCha(playerStats[5]);
+
+        //is it faster to do it this way or player.get$STAT?
+        //TODO find out
         strTv.setText(statStrings[0]);
         dexTv.setText(statStrings[1]);
         conTv.setText(statStrings[2]);
         intTv.setText(statStrings[3]);
         wisTv.setText(statStrings[4]);
         chaTv.setText(statStrings[5]);
-
     }
+
+    @OnClick(R.id.str_tv)
+    public void strCheck() {
+        showResult(diceRoll(20, 1, getMod(player.getStr())));
+    }
+
+    @OnClick(R.id.dex_tv)
+    public void dexCheck(){
+        showResult(diceRoll(20, 1, getMod(player.getDex())));
+    }
+
+    @OnClick(R.id.con_tv)
+    public void conCheck() {
+        showResult(diceRoll(20, 1, getMod(player.getCon())));
+    }
+
+    @OnClick(R.id.int_tv)
+    public void intCheck() {
+        showResult(diceRoll(20, 1, getMod(player.getIntel())));
+    }
+
+    @OnClick(R.id.wis_tv)
+    public void wisCheck() {
+        showResult(diceRoll(20, 1, getMod(player.getWis())));
+    }
+
+    @OnClick(R.id.cha_tv)
+    public void chaCheck() {
+        showResult(diceRoll(20, 1, getMod(player.getCha())));
+    }
+
+    private void showResult(int result) {
+        String s = String.format(getResources().getString(R.string.roll_result), result);
+        Toast.makeText(viewModel.getApplication(), s, Toast.LENGTH_SHORT).show();
+    }
+
+
 }
