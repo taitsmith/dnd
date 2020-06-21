@@ -1,12 +1,13 @@
 package com.taitsmith.dnd;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetFragment;
 
-public class PlayerSheetActivity extends AppCompatActivity {
+public class PlayerSheetActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

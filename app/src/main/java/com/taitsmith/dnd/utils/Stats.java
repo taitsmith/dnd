@@ -24,17 +24,30 @@ public class Stats {
         return (int) Math.floor(d);
     }
 
-    //does this make sense to be in a stats class? does stats need to be
-    //renamed? skill checks, etc
-    public static int diceRoll(int numberSides, int numberDie, int mod) {
+    //returns an int[] of size (number of dice + 1) so we can show the user each individual
+    //die roll, plus their modifier (if it exists), plus the total
+    //eg possible results for damage roll of 2d6 + 5 == [2,4,5,11] for rolls, mod, total
+    public static int[] diceRoll(int numberSides, int numberDie, int mod) {
+
+        //result[] includes rolls, modifier,
+        int[] result = new int[numberDie + 2];
         int total = 0;
 
         for (int i = 0; i < numberDie; i++) {
-            total += ThreadLocalRandom.current().nextInt(1, numberSides + 1);
+            result[i] = ThreadLocalRandom.current().nextInt(1, numberSides + 1);
+            total += result[i];
+            Log.d("ROLL " , Integer.toString(result[i]));
         }
-        Log.d("RANDOM " , Integer.toString(total));
-        Log.d("MOD ", Integer.toString(mod));
-        return total + mod;
+
+        //set next to last index of result to mod
+        result[result.length - 2] = mod;
+
+        total += mod;
+
+        //last index of result is total
+        result[result.length - 1] = total;
+
+        return result;
 
     }
 }

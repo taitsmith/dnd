@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,8 @@ public class PlayerSheetFragment extends Fragment {
     @BindView(R.id.wis_tv) TextView wisTv;
     @BindView(R.id.cha_tv) TextView chaTv;
 
-    @BindView(R.id.charsheet_tabs) TabLayout tabLayout;
+    //@BindView(R.id.charsheet_pager) ViewPager2 pager2;
+    //@BindView(R.id.charsheet_tabs) TabLayout tabLayout;
 
     private PlayerSheetViewModel viewModel;
     private Player player;
@@ -135,8 +137,11 @@ public class PlayerSheetFragment extends Fragment {
         showResult(diceRoll(20, 1, getMod(player.getCha())));
     }
 
-    private void showResult(int result) {
-        String s = String.format(getResources().getString(R.string.roll_result), result);
+
+    //diceRoll() returns an array but we'll only show the user the result in a toast.
+    //TODO more detailed logs that will show each die, modifier and total
+    private void showResult(int[] result) {
+        String s = String.format(getResources().getString(R.string.roll_result), result[result.length - 1]);
         Toast.makeText(viewModel.getApplication(), s, Toast.LENGTH_SHORT).show();
     }
 
