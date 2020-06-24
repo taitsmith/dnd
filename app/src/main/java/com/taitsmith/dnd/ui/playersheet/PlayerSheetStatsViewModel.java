@@ -2,6 +2,7 @@ package com.taitsmith.dnd.ui.playersheet;
 
 import android.app.Application;
 import android.content.res.Resources;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -30,7 +31,8 @@ public class PlayerSheetStatsViewModel extends AndroidViewModel {
     }
 
     //TODO there's fur sure an easier way to do this
-    String[] setStatString(int[] stats) {
+    //sets the string for the stat blocks
+    String[] getStatStrings(int[] stats) {
         Resources res = getApplication().getResources();
         String[] statNames = res.getStringArray(R.array.stats);
         String[] returnStrings = new String[6];
@@ -42,7 +44,25 @@ public class PlayerSheetStatsViewModel extends AndroidViewModel {
         return returnStrings;
     }
 
+    String[] getSkillStrings() {
+        Resources res = getApplication().getResources();
+        String[] skills = res.getStringArray(R.array.skills);
+
+        String[] returnString = new String[skills.length];
+
+        for (int i = 0; i < skills.length; i++) {
+            int j = getResId(skills[i], R.string.class);
+            returnString[i] = res.getString(j);
+
+            Log.d("SKILLS ", returnString[i]);
+        }
+
+        return returnString;
+    }
+
     //thanks macarse on SO for this snippet
+    //get R.string.foo as an int so we can can getString()
+    //should be way easier than this right?
     private int getResId(String name, Class<?> c) {
         try {
             Field idField = c.getDeclaredField(name);

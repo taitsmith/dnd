@@ -1,23 +1,23 @@
 package com.taitsmith.dnd.ui.playersheet;
 
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.taitsmith.dnd.R;
 import com.taitsmith.dnd.objects.Player;
+import com.taitsmith.dnd.utils.SkillAdapter;
 import com.taitsmith.dnd.utils.Stats;
 
 import butterknife.BindView;
@@ -36,10 +36,15 @@ public class PlayerSheetStatsFragment extends Fragment {
     @BindView(R.id.int_tv) TextView intTv;
     @BindView(R.id.wis_tv) TextView wisTv;
     @BindView(R.id.cha_tv) TextView chaTv;
+    @BindView(R.id.skill_list)
+    ListView skillListView;
 
     private PlayerSheetStatsViewModel viewModel;
     private Player player;
     private Unbinder unbinder;
+
+    String[] skills;
+    private SkillAdapter adapter;
 
     public static PlayerSheetStatsFragment newInstance() {
         return new PlayerSheetStatsFragment();
@@ -58,10 +63,17 @@ public class PlayerSheetStatsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         player = new Player();
 
+
+        skillListView.setAdapter(adapter);
+
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(PlayerSheetStatsViewModel.class);
         viewModel.setStats(player);
         updateStatViews();
+
+        skills = viewModel.getSkillStrings();
+        adapter = new SkillAdapter(getContext(), skills);
+
     }
 
     @Override
@@ -70,6 +82,7 @@ public class PlayerSheetStatsFragment extends Fragment {
         viewModel = ViewModelProviders.of(this).get(PlayerSheetStatsViewModel.class);
         // TODO: Use the ViewModel
 
+        String[] test = viewModel.getSkillStrings();
     }
 
     @Override
@@ -82,7 +95,7 @@ public class PlayerSheetStatsFragment extends Fragment {
     @SuppressLint("ResourceType")
     private void updateStatViews() {
         int[] playerStats = Stats.randomStats();
-        String[] statStrings = viewModel.setStatString(playerStats);
+        String[] statStrings = viewModel.getStatStrings(playerStats);
 
 
         player.setStr(playerStats[0]);

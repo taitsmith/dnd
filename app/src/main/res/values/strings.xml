@@ -9,6 +9,24 @@
     <string name="wisdom">Wisdom\n%1$d\n(%2$d)</string>
     <string name="charisma">Charisma\n%1$d\n(%2$d)</string>
 
+    <string name="acrobatics">Acrobatics</string>
+    <string name="animal_handling">Animal Handling</string>
+    <string name="arcana">Arcana</string>
+    <string name="athletics">Athletics</string>
+    <string name="deception">Deception</string>
+    <string name="history">History</string>
+    <string name="insight">Insight</string>
+    <string name="intimidation">Intimidation</string>
+    <string name="investigation">Investigation</string>
+    <string name="medicine">Medicine</string>
+    <string name="nature">Nature</string>
+    <string name="perception">Perception</string>
+    <string name="persuasion"> Persuasion</string>
+    <string name="religion">Religion</string>
+    <string name="sleight_of_hand">Sleight of Hand</string>
+    <string name="stealth">Stealth</string>
+    <string name="survival">Survival</string>
+
     <string name="player_name">%1$s</string>
     <string name="roll_result">You rolled %1$d</string>
 

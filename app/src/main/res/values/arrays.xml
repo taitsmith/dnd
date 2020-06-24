@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="skills">
-        <item>Acrobatics</item>
-        <item>Animal Handling</item>
-        <item>Arcana</item>
-        <item>Athletics</item>
-        <item>Deception</item>
-        <item>History</item>
-        <item>Insight</item>
-        <item>Intimidation</item>
-        <item>Investigation</item>
-        <item>Medicine</item>
-        <item>Nature</item>
-        <item>Perception</item>
-        <item>Persuasion</item>
-        <item>Religion</item>
-        <item>Sleight of Hand</item>
-        <item>Stealth</item>
-        <item>Survival</item>
+        <item>acrobatics</item>
+        <item>animal_handling</item>
+        <item>arcana</item>
+        <item>athletics</item>
+        <item>deception</item>
+        <item>history</item>
+        <item>insight</item>
+        <item>intimidation</item>
+        <item>investigation</item>
+        <item>medicine</item>
+        <item>nature</item>
+        <item>perception</item>
+        <item>persuasion</item>
+        <item>religion</item>
+        <item>sleight_of_hand</item>
+        <item>stealth</item>
+        <item>survival</item>
     </array>
 
     <array name="saving_throws">
