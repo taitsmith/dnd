@@ -9,7 +9,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.tabs.TabLayout;
 import com.taitsmith.dnd.R;
 import com.taitsmith.dnd.objects.Player;
 import com.taitsmith.dnd.utils.Stats;
@@ -30,7 +28,7 @@ import butterknife.Unbinder;
 import static com.taitsmith.dnd.utils.Stats.diceRoll;
 import static com.taitsmith.dnd.utils.Stats.getMod;
 
-public class PlayerSheetFragment extends Fragment {
+public class PlayerSheetStatsFragment extends Fragment {
 
     @BindView(R.id.str_tv) TextView strTv;
     @BindView(R.id.dex_tv) TextView dexTv;
@@ -39,22 +37,19 @@ public class PlayerSheetFragment extends Fragment {
     @BindView(R.id.wis_tv) TextView wisTv;
     @BindView(R.id.cha_tv) TextView chaTv;
 
-    //@BindView(R.id.charsheet_pager) ViewPager2 pager2;
-    //@BindView(R.id.charsheet_tabs) TabLayout tabLayout;
-
-    private PlayerSheetViewModel viewModel;
+    private PlayerSheetStatsViewModel viewModel;
     private Player player;
     private Unbinder unbinder;
 
-    public static PlayerSheetFragment newInstance() {
-        return new PlayerSheetFragment();
+    public static PlayerSheetStatsFragment newInstance() {
+        return new PlayerSheetStatsFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.player_sheet_fragment, container, false);
+        View view = inflater.inflate(R.layout.player_sheet_skills_abilities_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -64,7 +59,7 @@ public class PlayerSheetFragment extends Fragment {
         player = new Player();
 
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(requireActivity()).get(PlayerSheetViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(PlayerSheetStatsViewModel.class);
         viewModel.setStats(player);
         updateStatViews();
     }
@@ -72,7 +67,7 @@ public class PlayerSheetFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(PlayerSheetViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(PlayerSheetStatsViewModel.class);
         // TODO: Use the ViewModel
 
     }

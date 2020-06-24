@@ -12,10 +12,9 @@ import com.taitsmith.dnd.utils.Stats;
 
 import java.lang.reflect.Field;
 
+public class PlayerSheetStatsViewModel extends AndroidViewModel {
 
-public class PlayerSheetViewModel extends AndroidViewModel {
-
-    public PlayerSheetViewModel(@NonNull Application application) {
+    public PlayerSheetStatsViewModel(@NonNull Application application) {
         super(application);
     }
 

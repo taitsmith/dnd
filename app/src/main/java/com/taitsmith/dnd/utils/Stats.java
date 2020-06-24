@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Stats {
+    //TODO this is just for testing to randomly populate stats on app start
     public static int[] randomStats() {
         int[] stats = new int[6];
 
@@ -18,13 +19,14 @@ public class Stats {
         return stats;
     }
 
+    //skill modifiers
     public static int getMod(int statScore) {
         double d = statScore - 10;
         d /= 2;
         return (int) Math.floor(d);
     }
 
-    //returns an int[] of size (number of dice + 1) so we can show the user each individual
+    //returns an int[] of size (number of dice + 2) so we can show the user each individual
     //die roll, plus their modifier (if it exists), plus the total
     //eg possible results for damage roll of 2d6 + 5 == [2,4,5,11] for rolls, mod, total
     public static int[] diceRoll(int numberSides, int numberDie, int mod) {
