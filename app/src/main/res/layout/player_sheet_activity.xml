@@ -10,8 +10,8 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/spellcastingButton"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".PlayerSheetActivity" />
 
     <com.google.android.material.button.MaterialButton
@@ -19,27 +19,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/spellcasting"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/combatButton"
-        app:layout_constraintTop_toBottomOf="@id/container" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/combatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/attacks_combat_hp"
-        app:layout_constraintTop_toBottomOf="@id/container"
-        app:layout_constraintStart_toEndOf="@+id/spellcastingButton"
-        app:layout_constraintEnd_toStartOf="@id/skillsAbilitiesButton"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/skillsAbilitiesButton"
+        app:layout_constraintStart_toEndOf="@+id/spellcastingButton" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/skillsAbilitiesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/skills_abilities"
-        app:layout_constraintStart_toEndOf="@id/combatButton"
-        app:layout_constraintTop_toBottomOf="@id/container"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/combatButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

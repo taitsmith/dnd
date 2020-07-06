@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">dnd</string>
 
-    <!-- strings for char sheet -->
+    <!-- strings for char sheet skills and stats page-->
     <string name="strength">Strength\n%1$d\n(%2$d)</string>
     <string name="dexterity">Dexterity\n%1$d\n(%2$d)</string>
     <string name="constitution">Constitution\n%1$d\n(%2$d)</string>
@@ -30,7 +30,18 @@
     <string name="player_name">%1$s</string>
     <string name="roll_result">You rolled %1$d</string>
 
-    <!-- tab layout -->
+    <!-- strings for char sheet combat page-->
+    <string name="armor_class">Armor Class\n%1$d</string>
+    <string name="initiative">Initiative\n%1$d</string>
+    <string name="speed">Speed\n%1$d</string>
+    <string name="hp_max_current">HP: %1$d\n (%2$d max)</string>
+    <string name="hp_temp">Temporary HP\n%1$d</string>
+    <!-- hit dice in the form 1d6-->
+    <string name="hit_dice">Hit Dice\n%1$d d %2$d</string>
+    <string name="death_success">Death Save Success</string>
+    <string name="death_failure">Death Save Failure</string>
+
+    <!-- buttons for player sheet  -->
     <string name="skills_abilities">Skills\nand\nAbilities</string>
     <string name="attacks_combat_hp">Combat\nand\nHP</string>
     <string name="spellcasting">Spells\nand\nCasting</string>

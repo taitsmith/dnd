@@ -53,7 +53,7 @@ public class PlayerSheetStatsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.player_sheet_skills_abilities_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_player_sheet_skills_abilities, container, false);
 
         unbinder = ButterKnife.bind(this, view);
         player = new Player();

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.taitsmith.dnd.ui.playersheet.PlayerSheetCombatFragment;
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetStatsFragment;
 
 import butterknife.BindView;
@@ -34,8 +35,17 @@ public class PlayerSheetActivity extends FragmentActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.spellcastingButton)
+    @OnClick(R.id.combatButton)
     void spellcastingFragment() {
-        Toast.makeText(this, "TODO: THIS", Toast.LENGTH_SHORT).show();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, PlayerSheetCombatFragment.newInstance())
+                .commitNow();
+    }
+
+    @OnClick(R.id.skillsAbilitiesButton)
+    void skillsFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, PlayerSheetStatsFragment.newInstance())
+                .commitNow();
     }
 }
