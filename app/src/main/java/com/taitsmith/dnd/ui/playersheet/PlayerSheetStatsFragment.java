@@ -36,15 +36,14 @@ public class PlayerSheetStatsFragment extends Fragment {
     @BindView(R.id.int_tv) TextView intTv;
     @BindView(R.id.wis_tv) TextView wisTv;
     @BindView(R.id.cha_tv) TextView chaTv;
-    @BindView(R.id.skill_list)
-    ListView skillListView;
+    @BindView(R.id.skill_list) ListView skillListView;
 
     private PlayerSheetStatsViewModel viewModel;
     private Player player;
     private Unbinder unbinder;
 
     String[] skills;
-    private SkillAdapter adapter;
+    SkillAdapter adapter;
 
     public static PlayerSheetStatsFragment newInstance() {
         return new PlayerSheetStatsFragment();
@@ -55,24 +54,29 @@ public class PlayerSheetStatsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.player_sheet_skills_abilities_fragment, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        unbinder = ButterKnife.bind(this, view);
         player = new Player();
 
-
-        skillListView.setAdapter(adapter);
-
         super.onViewCreated(view, savedInstanceState);
+
         viewModel = new ViewModelProvider(requireActivity()).get(PlayerSheetStatsViewModel.class);
         viewModel.setStats(player);
         updateStatViews();
 
         skills = viewModel.getSkillStrings();
         adapter = new SkillAdapter(getContext(), skills);
+
+        skillListView.setAdapter(adapter);
+        skillListView.setOnItemClickListener((adapterView, view1, i, l) -> {
+            Toast.makeText(getContext(), skills[i], Toast.LENGTH_SHORT).show();
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
     }
 
@@ -82,7 +86,6 @@ public class PlayerSheetStatsFragment extends Fragment {
         viewModel = ViewModelProviders.of(this).get(PlayerSheetStatsViewModel.class);
         // TODO: Use the ViewModel
 
-        String[] test = viewModel.getSkillStrings();
     }
 
     @Override
@@ -150,8 +153,6 @@ public class PlayerSheetStatsFragment extends Fragment {
     //TODO more detailed logs that will show each die, modifier and total
     private void showResult(int[] result) {
         String s = String.format(getResources().getString(R.string.roll_result), result[result.length - 1]);
-        Toast.makeText(viewModel.getApplication(), s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
     }
-
-
 }

@@ -44,7 +44,6 @@ public class SkillAdapter extends BaseAdapter {
 
             view.setTag(viewHolder);
             viewHolder.skillName = view.findViewById(R.id.skill_list_skill_name);
-            viewHolder.proficientSwitch = view.findViewById(R.id.skill_list_proficient_switch);
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
@@ -56,6 +55,5 @@ public class SkillAdapter extends BaseAdapter {
 
     private class ViewHolder {
         TextView skillName;
-        Switch proficientSwitch;
     }
 }

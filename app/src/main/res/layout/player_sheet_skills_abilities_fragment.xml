@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.66" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <TextView
         android:id="@+id/str_tv"

@@ -31,7 +31,7 @@
     <string name="roll_result">You rolled %1$d</string>
 
     <!-- tab layout -->
-    <string name="skills_abilities">Skills and Abilities</string>
-    <string name="attacks_combat_hp">Attacks, Combat and HP</string>
-    <string name="spellcasting">Spellcasting</string>
+    <string name="skills_abilities">Skills\nand\nAbilities</string>
+    <string name="attacks_combat_hp">Combat\nand\nHP</string>
+    <string name="spellcasting">Spells\nand\nCasting</string>
 </resources>
