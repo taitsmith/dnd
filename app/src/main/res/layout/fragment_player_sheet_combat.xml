@@ -14,7 +14,7 @@
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal"
         android:text="@string/armor_class"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vert_33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +25,8 @@
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal"
         android:text="@string/initiative"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vert_66"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_33"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:gravity="center_horizontal"
         android:text="@string/speed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_66"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -47,24 +47,24 @@
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/hp_temp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horiz_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vert_66"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_33"
         app:layout_constraintTop_toBottomOf="@+id/initiative_tv" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guideline_vert_33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.34" />
+        app:layout_constraintGuide_percent="0.33" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guideline_vert_66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.67396593" />
+        app:layout_constraintGuide_percent="0.66" />
 
     <TextView
         android:id="@+id/hp_tv"
@@ -73,8 +73,8 @@
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/hp_max_current"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horiz_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vert_33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ac_tv" />
 
@@ -85,50 +85,85 @@
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
         android:text="@string/hit_dice"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horiz_25"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_66"
         app:layout_constraintTop_toBottomOf="@+id/speed_tv" />
-
-
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/death_success_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/death_success_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toEndOf="@+id/death_success_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/death_success_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toEndOf="@+id/death_success_2"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2599179" />
 
     <TextView
         android:id="@+id/death_success_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/death_success"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="195dp" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horiz_25" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_success_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_33"
+        app:layout_constraintTop_toBottomOf="@+id/death_success_tv" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_success_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/death_success_1"
+        app:layout_constraintTop_toBottomOf="@+id/death_success_tv" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_success_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/death_success_2"
+        app:layout_constraintTop_toBottomOf="@id/death_success_tv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horiz_25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <TextView
+        android:id="@+id/death_fail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/death_failure"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vert_66"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vert_33"
+        app:layout_constraintTop_toBottomOf="@+id/death_success_2" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_fail_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/guideline_vert_33"
+        app:layout_constraintTop_toBottomOf="@id/death_fail_tv"/>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_fail_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/death_fail_1"
+        app:layout_constraintTop_toBottomOf="@id/death_fail_tv"/>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/death_fail_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/death_fail_2"
+        app:layout_constraintTop_toBottomOf="@id/death_fail_tv"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
