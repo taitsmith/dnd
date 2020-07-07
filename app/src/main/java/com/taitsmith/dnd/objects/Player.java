@@ -5,8 +5,7 @@ import io.realm.RealmObject;
 
 public class Player extends RealmObject {
     private String name, clazz, background, race, alignment;
-    private int str, dex, con, intel, wis, cha, xp, hpCurrent ,hpMax, hpTemp, gold;
-    private RealmList<Integer> hitDice;
+    private int str, dex, con, intel, wis, cha, xp, hpCurrent ,hpMax, hpTemp, gold, hitDice;
     private RealmList<String> skills, savingThrows, languages, equipment;
 
     public String getName() {
@@ -137,11 +136,11 @@ public class Player extends RealmObject {
         this.gold = gold;
     }
 
-    public RealmList<Integer> getHitDice() {
+    public int getHitDice() {
         return hitDice;
     }
 
-    public void setHitDice(RealmList<Integer> hitDice) {
+    public void setHitDice(int hitDice) {
         this.hitDice = hitDice;
     }
 
