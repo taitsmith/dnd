@@ -5,8 +5,26 @@ import io.realm.RealmObject;
 
 public class Player extends RealmObject {
     private String name, clazz, background, race, alignment;
-    private int str, dex, con, intel, wis, cha, xp, hpCurrent ,hpMax, hpTemp, gold, hitDice;
+    private int str, dex, con, intel, wis, cha, xp, hpCurrent, hpMax,
+            hpTemp, gold, hitDice, level, armorClass, initiative, speed;
     private RealmList<String> skills, savingThrows, languages, equipment;
+
+
+    public int getArmorClass() { return armorClass; }
+
+    public void setArmorClass(int armorClass) { this.armorClass = armorClass; }
+
+    public int getInitiative() { return initiative; }
+
+    public void setInitiative(int initiative) { this.initiative = initiative; }
+
+    public int getSpeed() { return speed; }
+
+    public void setSpeed(int speed) { this.speed = speed; }
+
+    public int getLevel() { return level; }
+
+    public void setLevel(int level) { this.level = level; }
 
     public String getName() {
         return name;
