@@ -10,9 +10,8 @@ import io.realm.Realm;
 public class CreatePlayer {
 
     //TODO remove this, it's just random character for testing
-    public static void randomPlayer(Context context) {
+    public static void randomPlayer(Context context, Realm realm) {
         Realm.init(context);
-        Realm realm = Realm.getDefaultInstance();
 
         realm.beginTransaction();
         Player player = realm.createObject(Player.class);
@@ -31,7 +30,12 @@ public class CreatePlayer {
         player.setWis(13);
         player.setCha(10);
 
+        player.setArmorClass(16);
+
         player.setXp(5000);
+
+        player.setSpeed(35);
+        player.setInitiative(15);
 
         player.setHpMax(48);
         player.setHpCurrent(45);

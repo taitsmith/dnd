@@ -3,15 +3,21 @@ package com.taitsmith.dnd;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.taitsmith.dnd.objects.Player;
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetCombatFragment;
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetStatsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.exceptions.RealmMigrationNeededException;
+
+import static com.taitsmith.dnd.utils.CreatePlayer.randomPlayer;
 
 public class PlayerSheetActivity extends FragmentActivity {
    @BindView(R.id.spellcastingButton)
@@ -21,9 +27,13 @@ public class PlayerSheetActivity extends FragmentActivity {
    @BindView(R.id.skillsAbilitiesButton)
    MaterialButton skillsAbilitiesButton;
 
+   public static Player playerSheetPlayer;
+
+    Realm realm;
+    Unbinder unbinder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player_sheet_activity);
@@ -32,7 +42,19 @@ public class PlayerSheetActivity extends FragmentActivity {
                     .replace(R.id.container, PlayerSheetStatsFragment.newInstance())
                     .commitNow();
         }
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
+
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+
+        realm = Realm.getInstance(configuration);
+
+        //TODO random player, remove
+        randomPlayer(this, realm);
+        playerSheetPlayer = realm.where(Player.class)
+                .equalTo("name", "Greg")
+                .findFirstAsync();
     }
 
     @OnClick(R.id.combatButton)
@@ -47,5 +69,13 @@ public class PlayerSheetActivity extends FragmentActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, PlayerSheetStatsFragment.newInstance())
                 .commitNow();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.deleteAll();
+        realm.close();
+        unbinder.unbind();
     }
 }
