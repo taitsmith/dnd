@@ -2,6 +2,8 @@
     <string name="app_name">dnd</string>
 
     <!-- strings for char sheet skills and stats page-->
+    <string name="level_class_alignment">Level %1$d %2$s %3$s</string>
+
     <string name="strength">Strength\n%1$d\n(%2$d)</string>
     <string name="dexterity">Dexterity\n%1$d\n(%2$d)</string>
     <string name="constitution">Constitution\n%1$d\n(%2$d)</string>

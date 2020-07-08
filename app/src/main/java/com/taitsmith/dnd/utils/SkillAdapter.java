@@ -55,5 +55,7 @@ public class SkillAdapter extends BaseAdapter {
 
     private class ViewHolder {
         TextView skillName;
+
+
     }
 }

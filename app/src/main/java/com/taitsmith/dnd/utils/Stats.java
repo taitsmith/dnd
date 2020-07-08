@@ -2,22 +2,9 @@ package com.taitsmith.dnd.utils;
 
 import android.util.Log;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Stats {
-    //TODO this is just for testing to randomly populate stats on app start
-    public static int[] randomStats() {
-        int[] stats = new int[6];
-
-        for (int i = 0; i < 6; i++) {
-            Random r = new Random();
-            stats[i] = r.nextInt(16) + 3;
-            System.out.println(stats[i]);
-        }
-
-        return stats;
-    }
 
     //skill modifiers
     public static int getMod(int statScore) {
@@ -43,6 +30,8 @@ public class Stats {
 
         //set next to last index of result to mod
         result[result.length - 2] = mod;
+
+        Log.d("ROLL: MOD ", Integer.toString(mod));
 
         total += mod;
 

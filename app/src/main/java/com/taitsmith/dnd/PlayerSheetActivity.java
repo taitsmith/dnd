@@ -15,7 +15,6 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.exceptions.RealmMigrationNeededException;
 
 import static com.taitsmith.dnd.utils.CreatePlayer.randomPlayer;
 
@@ -54,7 +53,7 @@ public class PlayerSheetActivity extends FragmentActivity {
         randomPlayer(this, realm);
         playerSheetPlayer = realm.where(Player.class)
                 .equalTo("name", "Greg")
-                .findFirstAsync();
+                .findFirst();
     }
 
     @OnClick(R.id.combatButton)

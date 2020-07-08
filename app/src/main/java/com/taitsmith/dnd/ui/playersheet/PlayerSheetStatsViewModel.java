@@ -8,10 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
 import com.taitsmith.dnd.R;
-import com.taitsmith.dnd.objects.Player;
-import com.taitsmith.dnd.utils.Stats;
 
 import java.lang.reflect.Field;
+
+import static com.taitsmith.dnd.PlayerSheetActivity.playerSheetPlayer;
+import static com.taitsmith.dnd.utils.Stats.getMod;
 
 public class PlayerSheetStatsViewModel extends AndroidViewModel {
 
@@ -19,28 +20,24 @@ public class PlayerSheetStatsViewModel extends AndroidViewModel {
         super(application);
     }
 
-    void setStats(Player player) {
-        int[] stats = Stats.randomStats();
-
-        player.setStr(stats[0]);
-        player.setDex(stats[1]);
-        player.setCha(stats[2]);
-        player.setIntel(stats[3]);
-        player.setWis(stats[4]);
-        player.setCha(stats[5]);
-    }
-
-    //TODO there's fur sure an easier way to do this
     //sets the string for the stat blocks
-    String[] getStatStrings(int[] stats) {
-        Resources res = getApplication().getResources();
-        String[] statNames = res.getStringArray(R.array.stats);
+    String[] getStatStrings() {
         String[] returnStrings = new String[6];
+        Resources res = getApplication().getResources();
 
-        for (int i = 0; i < statNames.length; i++) {
-            int j = getResId(statNames[i], R.string.class);
-            returnStrings[i] = String.format(res.getString(j), stats[i], Stats.getMod(stats[i]));
-        }
+        returnStrings[0] = res.getString(R.string.strength, playerSheetPlayer.getStr(),
+                getMod(playerSheetPlayer.getStr()));
+        returnStrings[1] = res.getString(R.string.dexterity, playerSheetPlayer.getDex(),
+                getMod(playerSheetPlayer.getDex()));
+        returnStrings[2] = res.getString(R.string.constitution, playerSheetPlayer.getCon(),
+                getMod(playerSheetPlayer.getCon()));
+        returnStrings[3] = res.getString(R.string.intelligence, playerSheetPlayer.getIntel(),
+                getMod(playerSheetPlayer.getIntel()));
+        returnStrings[4] = res.getString(R.string.wisdom, playerSheetPlayer.getWis(),
+                getMod(playerSheetPlayer.getWis()));
+        returnStrings[5] = res.getString(R.string.charisma, playerSheetPlayer.getCha(),
+                getMod(playerSheetPlayer.getCha()));
+
         return returnStrings;
     }
 
@@ -59,6 +56,8 @@ public class PlayerSheetStatsViewModel extends AndroidViewModel {
 
         return returnString;
     }
+
+
 
     //thanks macarse on SO for this snippet
     //get R.string.foo as an int so we can can getString()

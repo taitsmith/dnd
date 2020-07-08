@@ -16,7 +16,6 @@
         android:id="@+id/mainCharName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="char sheet"
         app:layout_constraintBottom_toTopOf="@+id/horiz_guidline_header"
         app:layout_constraintEnd_toStartOf="@+id/vert_guideline_13"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +134,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/vert_guideline_13"
             app:layout_constraintTop_toTopOf="@+id/horiz_guidline_header" />
+
+    <TextView
+        android:id="@+id/level_class_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/horiz_guidline_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/vert_guideline_13"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
