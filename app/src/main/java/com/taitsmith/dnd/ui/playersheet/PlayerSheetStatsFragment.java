@@ -2,6 +2,7 @@ package com.taitsmith.dnd.ui.playersheet;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,9 +141,15 @@ public class PlayerSheetStatsFragment extends Fragment {
 
     //diceRoll() returns an array but we'll only show the user the result in a toast.
     //TODO more detailed logs that will show each die, modifier and total
-    private void showResult(int[] result) {
+    private void showResult(String[] result) {
         String s = String.format(getResources().getString(R.string.roll_result), result[result.length - 1]);
-        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+        Snackbar.make(getActivity().findViewById(android.R.id.content),
+                s, Snackbar.LENGTH_LONG).setAction(R.string.snackbar_more_info,
+                view -> {
+                    for (String st : result) {
+                        Log.d("Rolled ", st);
+                    }
+                }).show();
 
 
 
