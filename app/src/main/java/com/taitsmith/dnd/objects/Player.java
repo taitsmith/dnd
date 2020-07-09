@@ -6,9 +6,12 @@ import io.realm.RealmObject;
 public class Player extends RealmObject {
     private String name, clazz, background, race, alignment;
     private int str, dex, con, intel, wis, cha, xp, hpCurrent, hpMax,
-            hpTemp, gold, hitDice, level, armorClass, initiative, speed;
+            hpTemp, gold, hitDice, level, armorClass, initiative, speed, profBonus;
     private RealmList<String> skills, savingThrows, languages, equipment;
 
+    public int getProfBonus() { return profBonus; }
+
+    public void setProfBonus(int profBonus) { this.profBonus = profBonus; }
 
     public int getArmorClass() { return armorClass; }
 
@@ -66,9 +69,7 @@ public class Player extends RealmObject {
         this.alignment = alignment;
     }
 
-    public int getStr() {
-        return str;
-    }
+    public int getStr() { return str; }
 
     public void setStr(int str) {
         this.str = str;

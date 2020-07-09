@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.taitsmith.dnd.R;
@@ -39,7 +38,7 @@ public class SkillAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         if (view == null) {
-            view = inflater.inflate(R.layout.skill_list_item, null);
+            view = inflater.inflate(R.layout.list_item_skill, null);
             viewHolder = new ViewHolder();
 
             view.setTag(viewHolder);

@@ -30,7 +30,9 @@
     <string name="survival">Survival</string>
 
     <string name="player_name">%1$s</string>
-    <string name="roll_result">You rolled %1$d</string>
+    <string name="roll_result">You rolled %1$s</string>
+
+    <string name="snackbar_more_info">Details</string>
 
     <!-- strings for char sheet combat page-->
     <string name="armor_class">Armor Class\n%1$d</string>

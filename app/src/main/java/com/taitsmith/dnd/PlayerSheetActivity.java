@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.taitsmith.dnd.objects.Player;
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetCombatFragment;
 import com.taitsmith.dnd.ui.playersheet.PlayerSheetStatsFragment;
@@ -57,7 +58,7 @@ public class PlayerSheetActivity extends FragmentActivity {
     }
 
     @OnClick(R.id.combatButton)
-    void spellcastingFragment() {
+    void combatHpFragment() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, PlayerSheetCombatFragment.newInstance())
                 .commitNow();
