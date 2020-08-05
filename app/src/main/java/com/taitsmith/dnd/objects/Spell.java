@@ -1,13 +1,54 @@
 package com.taitsmith.dnd.objects;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Spell extends RealmObject {
     private int _id, level;
-    private String index, name, desc, higher_level, range, components, material, duration,
-    school, classes, subclasses, url;
+    private String index, name, desc, higher_level, page, range, material, duration, casting_time,
+            school, url;
+    private RealmList<String> components, classes, subclasses;
     private boolean ritual, concentration;
 
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+
+    public String getCasting_time() {
+        return casting_time;
+    }
+
+    public void setCasting_time(String casting_time) {
+        this.casting_time = casting_time;
+    }
+
+    public RealmList<String> getComponents() {
+        return components;
+    }
+
+    public void setComponents(RealmList<String> components) {
+        this.components = components;
+    }
+
+    public RealmList<String> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(RealmList<String> classes) {
+        this.classes = classes;
+    }
+
+    public RealmList<String> getSubclasses() {
+        return subclasses;
+    }
+
+    public void setSubclasses(RealmList<String> subclasses) {
+        this.subclasses = subclasses;
+    }
 
     public int get_id() {
         return _id;
@@ -65,14 +106,6 @@ public class Spell extends RealmObject {
         this.range = range;
     }
 
-    public String getComponents() {
-        return components;
-    }
-
-    public void setComponents(String components) {
-        this.components = components;
-    }
-
     public String getMaterial() {
         return material;
     }
@@ -95,22 +128,6 @@ public class Spell extends RealmObject {
 
     public void setSchool(String school) {
         this.school = school;
-    }
-
-    public String getClasses() {
-        return classes;
-    }
-
-    public void setClasses(String classes) {
-        this.classes = classes;
-    }
-
-    public String getSubclasses() {
-        return subclasses;
-    }
-
-    public void setSubclasses(String subclasses) {
-        this.subclasses = subclasses;
     }
 
     public String getUrl() {
