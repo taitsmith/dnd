@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taitsmith.dnd">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".DndApplication"
         android:allowBackup="true"
@@ -20,5 +22,6 @@
         <activity android:name=".PlayerCreateActivity" />
         <activity android:name=".MainActivity"/>
     </application>
+
 
 </manifest>

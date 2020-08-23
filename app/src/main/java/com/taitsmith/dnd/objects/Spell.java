@@ -4,10 +4,10 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Spell extends RealmObject {
-    private int _id, level;
-    private String index, name, desc, higher_level, page, range, material, duration, casting_time,
-            school, url;
-    private RealmList<String> components, classes, subclasses;
+    private int level;
+    private String _id, index, name, page, range, material, duration, casting_time, url, damage;
+    private RealmList<String>  classes, subclasses, desc, higher_level, components, damage_type,
+            damage_at_slot_level, school;
     private boolean ritual, concentration;
 
     public String getPage() {
@@ -50,11 +50,12 @@ public class Spell extends RealmObject {
         this.subclasses = subclasses;
     }
 
-    public int get_id() {
+
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(int _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
@@ -82,20 +83,52 @@ public class Spell extends RealmObject {
         this.name = name;
     }
 
-    public String getDesc() {
+    public RealmList<String> getDesc() {
         return desc;
     }
 
-    public void setDesc(String desc) {
+    public void setDesc(RealmList<String> desc) {
         this.desc = desc;
     }
 
-    public String getHigher_level() {
+    public RealmList<String> getHigher_level() {
         return higher_level;
     }
 
-    public void setHigher_level(String higher_level) {
+    public void setHigher_level(RealmList<String> higher_level) {
         this.higher_level = higher_level;
+    }
+
+    public String getDamage() {
+        return damage;
+    }
+
+    public void setDamage(String damage) {
+        this.damage = damage;
+    }
+
+    public RealmList<String> getDamage_type() {
+        return damage_type;
+    }
+
+    public void setDamage_type(RealmList<String> damage_type) {
+        this.damage_type = damage_type;
+    }
+
+    public RealmList<String> getDamage_at_slot_level() {
+        return damage_at_slot_level;
+    }
+
+    public void setDamage_at_slot_level(RealmList<String> damage_at_slot_level) {
+        this.damage_at_slot_level = damage_at_slot_level;
+    }
+
+    public RealmList<String> getSchool() {
+        return school;
+    }
+
+    public void setSchool(RealmList<String> school) {
+        this.school = school;
     }
 
     public String getRange() {
@@ -120,14 +153,6 @@ public class Spell extends RealmObject {
 
     public void setDuration(String duration) {
         this.duration = duration;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
     }
 
     public String getUrl() {
